@@ -2,12 +2,12 @@
    ROOT — zmienne globalne
    ========================================== */
 :root {
-  --bg-1:#1f2125;
-  --bg-2:#181212;
-  --panel:#212024;
-  --accent:#0ef174;
-  --muted:#7dfdb9;
-  --radius:14px;
+  --bg-1: #1f2125;
+  --bg-2: #181212;
+  --panel: #212024;
+  --accent: #0ef174;
+  --muted: #7dfdb9;
+  --radius: 14px;
 
   font-family: Inter, ui-sans-serif, system-ui, sans-serif;
 }
@@ -15,21 +15,20 @@
 /* ==========================================
    BODY
    ========================================== */
-html,body {
-  margin:0;
-  height:100%;
+html, body {
+  margin: 0;
+  height: 100%;
 }
 
 body {
   background: linear-gradient(180deg, var(--bg-1), #101316);
-  color:#e6eef3;
-  padding:0;
+  color: #e6eef3;
+  padding: 0;
 }
 
 /* ==========================================
    TOP BAR — zawsze u góry
    ========================================== */
-/* kontener top-bara: tytuł po lewej, przycisk po prawej */
 .top-bar {
   position: sticky;
   top: 0;
@@ -38,13 +37,11 @@ body {
   background: rgba(0,0,0,0.45);
   backdrop-filter: blur(10px) saturate(130%);
   border-bottom: 1px solid rgba(255,255,255,0.06);
-
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-/* układ tytułu i opisu */
 .top-left h1 {
   margin: 0;
   font-size: 22px;
@@ -56,23 +53,20 @@ body {
   color: var(--accent);
 }
 
-/* przycisk powrotu */
+/* BACK BUTTON */
 .back-button {
   display: inline-block;
   padding: 8px 16px;
   border-radius: 10px;
-
   background: rgba(255,255,255,0.04);
   border: 1px solid rgba(255,255,255,0.08);
   color: var(--accent);
   text-decoration: none;
   font-size: 14px;
   font-weight: 500;
-
   transition: all 0.25s ease, box-shadow 0.25s ease;
 }
 
-/* efekt hover: neon + glass */
 .back-button:hover {
   background: rgba(255,255,255,0.12);
   border-color: var(--accent);
@@ -80,88 +74,116 @@ body {
   transform: translateY(-2px);
 }
 
-
 /* ==========================================
    CONTAINER — cała zawartość pod spodem
    ========================================== */
 .wrapper {
-  padding:24px;
-  max-width:780px;
-  margin:0 auto;
+  padding: 24px;
+  max-width: 780px;
+  margin: 0 auto;
 }
 
 /* ==========================================
-   ELEMENT LISTY (kafelek)
+   ITEM — kafelek serwera
    ========================================== */
 .item {
-  padding:18px 20px;
-  background:rgba(255,255,255,0.03);
-  border:1px solid rgba(255,255,255,0.06);
-  border-radius:var(--radius);
-  margin-bottom:14px;
-
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: var(--radius);
+  padding: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+  gap: 20px;
   transition: background 0.25s ease,
               transform 0.2s ease,
               box-shadow 0.3s ease,
               border-color 0.3s ease;
 }
 
-/* hover GLASS + neon */
 .item:hover {
-  background:rgba(255,255,255,0.07);
+  background: rgba(255,255,255,0.07);
   transform: translateY(-4px);
   border-color: var(--accent);
   box-shadow: 0 8px 25px rgba(14,241,116,0.25);
 }
 
-/* ==========================================
-   TEKST W ITEM
-   ========================================== */
-.item h2 {
-  margin:0;
-  font-size:17px;
-  font-weight:600;
+/* LEFT PART: INFO */
+.item-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
-.item p {
-  margin:6px 0 0;
-  font-size:13px;
-  color:#9db3c2;
+.item-info h2 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.item-info p {
+  margin: 6px 0 0;
+  font-size: 13px;
+  color: #9db3c2;
 }
 
 /* ==========================================
    STATUS PILL
    ========================================== */
 .status-pill {
-  display:inline-block;
-  margin-top:10px;
-  padding:6px 12px;
-  font-size:12px;
-  border-radius:999px;
-
-  background:rgba(255,255,255,0.03);
-  border:1px solid rgba(255,255,255,0.1);
-  color:#9ce7b6;
-
-  transition:all 0.25s ease;
+  display: inline-block;
+  margin-top: 10px;
+  padding: 6px 12px;
+  font-size: 12px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: #9ce7b6;
+  transition: all 0.25s ease;
 }
 
-.status-pill.ok {
-  border-color:#12ff6e;
-  color:#12ff6e;
-}
-
-.status-pill.warn {
-  border-color:#ffd35f;
-  color:#ffd35f;
-}
-
-.status-pill.off {
-  border-color:#ff7474;
-  color:#ff7474;
-}
+.status-pill.ok { border-color: #12ff6e; color: #12ff6e; }
+.status-pill.warn { border-color: #ffd35f; color: #ffd35f; }
+.status-pill.off { border-color: #ff7474; color: #ff7474; }
 
 .status-pill:hover {
-  box-shadow:0 0 12px currentColor;
-  background:rgba(255,255,255,0.07);
+  box-shadow: 0 0 12px currentColor;
+  background: rgba(255,255,255,0.07);
+}
+
+/* ==========================================
+   DASHBOARD BUTTON (PO PRAWEJ)
+   ========================================== */
+.go-dashboard {
+  padding: 12px 26px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(14,241,116,0.25), rgba(14,241,116,0.05));
+  border: 1px solid rgba(14,241,116,0.5);
+  text-decoration: none;
+  color: var(--accent);
+  font-weight: 600;
+  white-space: nowrap;
+  transition: all 0.25s ease, box-shadow 0.25s ease;
+}
+
+.go-dashboard:hover {
+  background: rgba(14,241,116,0.2);
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 0 18px rgba(14,241,116,0.45);
+}
+
+/* ==========================================
+   RESPONSYWNOŚĆ
+   ========================================== */
+@media (max-width: 600px) {
+  .item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .go-dashboard {
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+  }
 }

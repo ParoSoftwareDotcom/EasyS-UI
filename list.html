@@ -15,35 +15,40 @@
         <h1>Lista serwerów</h1>
         <p class="lead">Status usług i adresy dostępu</p>
     </div>
+<a href="index.html" class="back-button">← Powrót</a>
 
-    <a href="index.html" class="back-button">← Powrót</a>
-</div>
+<!-- Główna zawartość -->
+<div class="wrapper">
 
-    <!-- Główna zawartość -->
-    <div class="wrapper">
-
-        <!-- ELEMENT 1 -->
-        <div class="item">
-            <h2>Proxmox1  </h2>
+    <!-- ELEMENT 1 -->
+    <div class="item">
+        <div class="item-info">
+            <h2>Proxmox1</h2>
             <p>HP380G6:8006 - Ubuntu 24</p>
-            <span class="status-pill OFF">TBA</span>
+            <span class="status-pill off">TBA</span>
         </div>
-
-        <!-- ELEMENT 2 -->
-        <div class="item">
-            <h2>NAS</h2>
-            <p>ParoDSKTP2:8005 - Truenas CORE</p>
-            <span class="status-pill OFF">TBA</span>
-        </div>
-
-        <!-- ELEMENT 3 -->
-        <div class="item">
-            <h2>Serwer FTP</h2>
-            <p>AleksanderJti.local:21 - Windows 2019</p>
-            <span class="status-pill OFF">TBA</span>
-        </div>
-
+        <a href="dashboard-proxmox1.html" class="go-dashboard">Dashboard →</a>
     </div>
 
-</body>
+    <!-- ELEMENT 2 -->
+    <div class="item">
+        <div class="item-info">
+            <h2>NAS</h2>
+            <p>ParoDSKTP2:8005 - Truenas CORE</p>
+            <span class="status-pill off">TBA</span>
+        </div>
+        <a href="dashboard-nas.html" class="go-dashboard">Dashboard →</a>
+    </div>
+
+    <!-- ELEMENT 3 -->
+    <div class="item">
+        <div class="item-info">
+            <h2>Serwer FTP</h2>
+            <p>AleksanderJti.local:21 - Windows 2019</p>
+            <span class="status-pill off">TBA</span>
+        </div>
+        <a href="dashboard-ftp.html" class="go-dashboard">Dashboard →</a>
+    </div>
+
+</div>
 </html>
