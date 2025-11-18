@@ -21,6 +21,17 @@ html, body {
     "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
+.top-bar {
+  position: sticky;
+  top: 0;
+  z-index: 999; /* zawsze na wierzchu */
+  background: linear-gradient(180deg, rgba(20,20,20,0.75), rgba(10,10,10,0.3));
+  backdrop-filter: blur(8px) saturate(120%);
+  padding: 16px 0 18px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+
 /* ==========================================
    BODY — główne tło + efekt szumu
    ========================================== */
