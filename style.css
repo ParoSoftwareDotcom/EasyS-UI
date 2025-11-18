@@ -114,7 +114,7 @@ p.lead{
 
 .btn:active{transform:translateY(1px)}
 .btn:hover{
-  font-size: xx-large;
+  font-size: xx-largeonclick="window.location.replace('https://example.com');";
   transform:translateY(-3px);box-shadow:0 16px 40px rgba(1,6,10,0.6)}
 
 .btn .icon{width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center;opacity:0.95}
