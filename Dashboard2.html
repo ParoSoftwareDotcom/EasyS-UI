@@ -1,11 +1,53 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="pl">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Server Dashboard</title>
   <link rel="stylesheet" href="Dashboard.css">
-<style> :root{ --bg-1:#1f2125; --bg-2:#181212; --panel:rgb(33, 31, 36); --muted:#0ef174; --accent:rgb(14, 241, 116); --glass: rgba(0, 0, 0, 0); --btn-h: 48px; --radius:14px; font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; } html,body{height:100%;} body{ margin:0; min-height:100%; background: linear-gradient(180deg,var(--bg-1) 0%, #0e1114 40%, #101316 100%); color:#e6eef3; -webkit-font-smoothing:antialiased; display:flex; align-items:center; justify-content:center; padding:32px; } body::before{ content:""; position:fixed; inset:0; background: repeating-linear-gradient(45deg, rgba(20, 1, 1, 0) 0 1px, transparent 1px 6px); mix-blend-mode: overlay; pointer-events:none; opacity:0.05; } .dashboard{ width:100%; max-width:980px; border-radius:var(--radius); padding:28px; box-shadow: 0 8px 30px rgba(138, 92, 246, 0.301), inset 0 1px 0 rgba(255,255,255,0.02); background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); backdrop-filter: blur(6px) saturate(110%); display:grid; grid-template-columns: 1fr 320px; gap:20px; align-items:start; } header{display:flex;align-items:center;gap:16px} .logo{width:60px;height:60px;border-radius:12px;background:linear-gradient(135deg,var(--bg-2),var(--panel)); display:flex;align-items:center;justify-content:center;font-weight:700;font-size:18px;color:var(--accent); box-shadow:0 6px 18px rgba(0,0,0,0.6), inset 0 -6px 12px rgba(255,255,255,0.02);} h1{font-size:20px;margin:0} p.lead{margin:4px 0 0;color:var(--muted);font-size:13px} .controls{padding-top:8px;} .grid{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px;} .btn{ appearance:none;border:0;padding:0 16px;height:var(--btn-h); display:inline-flex;align-items:center;gap:12px;border-radius:12px; background:linear-gradient(180deg, rgba(139, 92, 246, 0.6), rgba(39, 4, 66, 0.616)); color:inherit;cursor:pointer;transition:transform .12s ease, box-shadow .12s ease; box-shadow: 0 6px 18px rgba(2,6,12,0.6); } .btn:active{transform:translateY(1px)} .btn:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(1,6,10,0.6)} .btn .icon{width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center;opacity:0.95} .btn.green{border-left:4px solid rgba(110,231,183,0.12)} .btn.blue{border-left:4px solid rgba(120,160,255,0.07)} .btn.warn{border-left:4px solid rgba(255,200,100,0.06)} .meta{font-size:12px;color:var(--muted);margin-top:14px} aside{display:flex;flex-direction:column;gap:12px} .card{background:linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01)); padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.02)} .server-name{font-weight:600} .status-pill{display:inline-block;padding:6px 10px;border-radius:999px;font-size:12px; background:rgba(255,255,255,0.02);border:1px solid rgb(102, 255, 0)} footer{grid-column:1 / -1;margin-top:12px;padding-top:8px;border-top:1px dashed rgba(255,255,255,0.02); display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:13px} @media (max-width:900px){.dashboard{grid-template-columns:1fr;}aside{order:2}} </style>
+<style> .ssh-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(6px);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+}
+
+.ssh-window {
+  width: 85%;
+  height: 75%;
+  background: #0c0c0d;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.1);
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 0 25px rgba(0,0,0,0.55);
+}
+
+#sshFrame {
+  width: 100%;
+  height: 100%;
+}
+
+.close-ssh {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.08);
+  color: white;
+  border: 1px solid rgba(255,255,255,0.2);
+  cursor: pointer;
+  font-size: 16px;
+}
+ :root{ --bg-1:#1f2125; --bg-2:#181212; --panel:rgb(33, 31, 36); --muted:#0ef174; --accent:rgb(14, 241, 116); --glass: rgba(0, 0, 0, 0); --btn-h: 48px; --radius:14px; font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; } html,body{height:100%;} body{ margin:0; min-height:100%; background: linear-gradient(180deg,var(--bg-1) 0%, #0e1114 40%, #101316 100%); color:#e6eef3; -webkit-font-smoothing:antialiased; display:flex; align-items:center; justify-content:center; padding:32px; } body::before{ content:""; position:fixed; inset:0; background: repeating-linear-gradient(45deg, rgba(20, 1, 1, 0) 0 1px, transparent 1px 6px); mix-blend-mode: overlay; pointer-events:none; opacity:0.05; } .dashboard{ width:100%; max-width:980px; border-radius:var(--radius); padding:28px; box-shadow: 0 8px 30px rgba(138, 92, 246, 0.301), inset 0 1px 0 rgba(255,255,255,0.02); background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); backdrop-filter: blur(6px) saturate(110%); display:grid; grid-template-columns: 1fr 320px; gap:20px; align-items:start; } header{display:flex;align-items:center;gap:16px} .logo{width:60px;height:60px;border-radius:12px;background:linear-gradient(135deg,var(--bg-2),var(--panel)); display:flex;align-items:center;justify-content:center;font-weight:700;font-size:18px;color:var(--accent); box-shadow:0 6px 18px rgba(0,0,0,0.6), inset 0 -6px 12px rgba(255,255,255,0.02);} h1{font-size:20px;margin:0} p.lead{margin:4px 0 0;color:var(--muted);font-size:13px} .controls{padding-top:8px;} .grid{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px;} .btn{ appearance:none;border:0;padding:0 16px;height:var(--btn-h); display:inline-flex;align-items:center;gap:12px;border-radius:12px; background:linear-gradient(180deg, rgba(139, 92, 246, 0.6), rgba(39, 4, 66, 0.616)); color:inherit;cursor:pointer;transition:transform .12s ease, box-shadow .12s ease; box-shadow: 0 6px 18px rgba(2,6,12,0.6); } .btn:active{transform:translateY(1px)} .btn:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(1,6,10,0.6)} .btn .icon{width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center;opacity:0.95} .btn.green{border-left:4px solid rgba(110,231,183,0.12)} .btn.blue{border-left:4px solid rgba(120,160,255,0.07)} .btn.warn{border-left:4px solid rgba(255,200,100,0.06)} .meta{font-size:12px;color:var(--muted);margin-top:14px} aside{display:flex;flex-direction:column;gap:12px} .card{background:linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01)); padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.02)} .server-name{font-weight:600} .status-pill{display:inline-block;padding:6px 10px;border-radius:999px;font-size:12px; background:rgba(255,255,255,0.02);border:1px solid rgb(102, 255, 0)} footer{grid-column:1 / -1;margin-top:12px;padding-top:8px;border-top:1px dashed rgba(255,255,255,0.02); display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:13px} @media (max-width:900px){.dashboard{grid-template-columns:1fr;}aside{order:2}} </style>
 </head>
 <body>
   <main class="dashboard">
@@ -23,8 +65,9 @@
         <div class="grid">
            <a class="btn green" onclick="window.location.replace('list.html');" target="_blank">
             <span class="icon">🌐</span><span>Strona Główna</span>
-          <a class="btn blue" href="https://192.168.100.221:8006" target="_blank">
-            <span class="icon">🖥️</span><span>Zarządzanie</span>
+  <a class="btn blue" onclick="openSSH('http://192.168.100.X:8005')">
+  <span class="icon">🖥️</span><span>Zarządzanie</span>
+</a>
           </a>
         </div>
       </section>
@@ -83,6 +126,15 @@
   </div>
 </footer>
 
+
+<div id="sshModal" class="ssh-modal">
+  <div class="ssh-window">
+    <iframe id="sshFrame" src="" frameborder="0"></iframe>
+    <button class="close-ssh" onclick="closeSSH()">✖</button>
+  </div>
+</div>
+
+
  <script>
     const NODE_NAME = "Paro";
     const pill = document.getElementById("status-pill");
@@ -128,9 +180,18 @@
         pill.style.borderColor = "#ff3333";
         pill.style.color = "#ff3333";
         document.body.style.backgroundColor = "#1a0000";
+
+function openSSH(url) {
+  document.getElementById("sshFrame").src = url;
+  document.getElementById("sshModal").style.display = "flex";
+}
+
+function closeSSH() {
+  document.getElementById("sshModal").style.display = "none";
+  document.getElementById("sshFrame").src = "";
+}
       }
     }
-
     fetchStatus();
     setInterval(fetchStatus, 5000);
   </script>

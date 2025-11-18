@@ -1,0 +1,179 @@
+/* ==========================================
+   ROOT — zmienne globalne
+   ========================================== */
+:root {
+  --bg-1: #1f2125;
+  --bg-2: #181212;
+  --panel: #212024;
+  --accent: #0ef174;
+  --muted: #7dfdb9;
+  --radius: 14px;
+
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  --scale: 1.5; /* skala panelu i zawartości */
+}
+
+/* ==========================================
+   BODY
+   ========================================== */
+html, body {
+  margin: 0;
+  height: 100%;
+}
+
+body {
+  background: linear-gradient(180deg, var(--bg-1), #101316);
+  color: #e6eef3;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================================
+   TOP BAR — przywrócony do oryginalnego rozmiaru
+   ========================================== */
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  display: flex;
+  justify-content: flex-start; /* elementy po lewej */
+  align-items: center;
+  padding: 18px 24px; /* oryginalny padding pionowy i poziomy */
+  background: rgba(0,0,0,0.45);
+  backdrop-filter: blur(10px) saturate(130%);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  box-sizing: border-box;
+}
+
+.top-left h1 {
+  margin: 0;
+  font-size: 22px; /* oryginalny rozmiar fontu */
+}
+
+.top-left .lead {
+  margin: 4px 0 0;
+  font-size: 13px; /* oryginalny rozmiar fontu */
+  color: var(--accent);
+}
+
+/* ==========================================
+   WRAPPER — główny kontener
+   ========================================== */
+.wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: calc(100px * var(--scale)) calc(24px * var(--scale)) 24px 24px; /* top-bar offset */
+}
+
+/* ==========================================
+   MAIN PANEL
+   ========================================== */
+.main-panel {
+  background: var(--panel);
+  border-radius: calc(var(--radius) * var(--scale));
+  padding: calc(40px * var(--scale)) calc(30px * var(--scale));
+  max-width: calc(500px * var(--scale));
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(3, 190, 87, 0.4);
+}
+
+.main-panel h2 {
+  margin-top: 0;
+  font-size: calc(24px * var(--scale));
+  color: var(--accent);
+}
+
+.main-panel p {
+  margin: calc(10px * var(--scale)) 0 calc(20px * var(--scale));
+  font-size: calc(15px * var(--scale));
+  color: #c5d1db;
+}
+
+/* ==========================================
+   PANEL LINKS
+   ========================================== */
+.panel-links {
+  display: flex;
+  flex-direction: column;
+  gap: calc(16px * var(--scale));
+}
+
+.panel-link {
+  display: block;
+  padding: calc(14px * var(--scale)) calc(20px * var(--scale));
+  border-radius: calc(var(--radius) * var(--scale));
+  background: rgba(14,241,116,0.1);
+  border: 1px solid rgba(14,241,116,0.4);
+  color: var(--accent);
+  font-weight: 600;
+  font-size: calc(16px * var(--scale));
+  text-decoration: none;
+  transition: all 0.25s ease, box-shadow 0.25s ease;
+}
+
+.panel-link:hover {
+  background: rgba(14,241,116,0.25);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 0 15px rgba(14,241,116,0.4);
+}
+
+/* ==========================================
+   RESPONSYWNOŚĆ
+   ========================================== */
+
+footer {
+  grid-column: 1 / -1;
+  margin-top: 12px;
+  padding: 12px 24px;
+  border-top: 1px dashed rgba(255,255,255,0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--muted);
+  font-size: 13px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.update-time {
+  color: #aaa;
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.social-links {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.social-links a {
+  color: rgb(139, 92, 246); /* fioletowy */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.25s ease, transform 0.2s ease;
+}
+
+.social-links a:hover {
+  color: var(--accent); /* zielony hover */
+  transform: translateY(-2px) scale(1.1);
+}
+
+.social-links svg {
+  width: 22px;
+  height: 22px;
+  display: block;
+}

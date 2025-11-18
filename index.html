@@ -1,47 +1,70 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Strona Główna</title>
-    <link rel="stylesheet" href="stylee.css">
-</head> 
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Strona Główna </title>
+  <link rel="stylesheet" href="main.css">
+</head>
 <body>
-   <main class="dashboard">
-    <div>
-      <header>
-        <div class="logo"><img src="icon.jpg" alt="Server Dashboard logo" width="48"></div>
-        <div>
-          <h1>Strona Główna</h1>
-          <p class="lead">Szybki dostęp do narzędzi serwerów i kontaktu z administratorem.</p>
-        </div>
-      </header>
 
- <section class="controls">
-        <h2 style="font-size:14px;margin:10px 0 0;color:var(--muted)">Szybkie akcje</h2>
-        <div class="grid">
-           <a class="btn green" onclick="window.location.replace('list.html');" target="_blank">
-            <span class="icon">🌐</span><span>Lista serwerów</span>
-          </a>
-           <a class="btn green" onclick="window.open('https://docs.google.com/document/d/1I1ObHUFYYQOiniY-altPCX9rHINk8B-epINwI-vWAKM/edit', '_blank')" >
-            <span class="icon">📄</span><span>Google Docs</span>
-          </a>
-          <a class="btn blue" onclick="window.open('https://192.168.100.221:8006', '_blank')" >
-            <span class="icon">🖥️</span><span>Proxmox (web UI)</span>
-          </a>
-        </div>
-      </section>
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <div class="top-left">
+      <h1>EasyS-UI</h1>
+      <p class="lead">Strona główna</p>
     </div>
-    <aside>
-      <div class="card">
-        <div style="font-weight:600;margin-bottom:6px">Notatka Admina</div>
-        <div style="font-size:13px;color:var(--muted)">IIS DZIAŁAAAAA <strong>Ftp też</strong>.<br/>力，日久见人心</div>
-      </div>
-    </aside>
-
- <footer>
-  <div class="footer-left">
-    <span>Server Dashboard - Paro software - Chatgpt - Zgosc</span>
   </div>
+
+  <!-- WRAPPER -->
+  <div class="wrapper">
+    <div class="main-panel">
+      <h2>Witamy w EasyS-UI</h2>
+      <p>Prosty, przejrzysty i bezpieczny system monitorowania usług serwerowych.</p>
+      
+      <div class="panel-links">
+        <a href="list.html" class="panel-link">🖥️ Lista Serwerów</a>
+        <a href="https://github.com/ParoSoftwareDotcom/EasyS-UI" class="panel-link">📄 Dokumentacja Projektu</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+  <div class="footer-left">
+    <span>EasyS-UI Paro Software & Zgosc</span>
+  </div>
+
+  <div class="social-links">
+    <!-- GitHub -->
+    <a href="https://github.com/ParoSoftwareDotcom" target="_blank" aria-label="GitHub">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 .5C5.65.5.5 5.65.5 12a11.5 11.5 0 0 0 7.85 10.9c.57.1.77-.25.77-.55v-2.15c-3.19.7-3.87-1.54-3.87-1.54a3.07 3.07 0 0 0-1.29-1.7c-1.05-.7.08-.68.08-.68a2.4 2.4 0 0 1 1.74 1.17 2.45 2.45 0 0 0 3.34 1 2.44 2.44 0 0 1 .73-1.54c-2.55-.3-5.23-1.27-5.23-5.65a4.45 4.45 0 0 1 1.18-3.1 4.13 4.13 0 0 1 .12-3.06s.96-.3 3.14 1.18a10.73 10.73 0 0 1 5.72 0c2.18-1.48 3.14-1.18 3.14-1.18a4.13 4.13 0 0 1 .12 3.06 4.45 4.45 0 0 1 1.18 3.1c0 4.39-2.68 5.35-5.24 5.64a2.74 2.74 0 0 1 .78 2.12v3.14c0 .3.2.66.78.55A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/>
+      </svg>
+    </a>
+
+    <!-- Discord -->
+    <a href="https://discord.gg/JEXUrBPpAP" target="_blank" rel="noopener noreferrer" title="Discord">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M20.317 4.369a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.078.037c-.211.375-.445.864-.608 1.25a18.27 18.27 0 0 0-5.458 0 12.3 12.3 0 0 0-.619-1.25.077.077 0 0 0-.078-.037A19.736 19.736 0 0 0 3.68 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.055a.08.08 0 0 0 .031.055 19.9 19.9 0 0 0 5.993 3.03.077.077 0 0 0 .084-.028c.462-.63.873-1.295 1.226-1.993a.076.076 0 0 0-.041-.105 13.197 13.197 0 0 1-1.882-.9.076.076 0 0 1-.008-.126c.126-.094.252-.192.372-.291a.075.075 0 0 1 .078-.01c3.957 1.812 8.251 1.812 12.168 0a.075.075 0 0 1 .079.009c.12.099.245.198.372.292a.076.076 0 0 1-.006.126c-.6.354-1.228.658-1.884.9a.076.076 0 0 0-.04.106c.36.698.77 1.362 1.225 1.992a.076.076 0 0 0 .084.028 19.876 19.876 0 0 0 6.002-3.03.078.078 0 0 0 .03-.055c.5-5.177-.838-9.673-3.548-13.659a.06.06 0 0 0-.032-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.334.956-2.419 2.157-2.419 1.21 0 2.176 1.095 2.157 2.419 0 1.334-.956 2.419-2.157 2.419zm7.974 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.334.956-2.419 2.157-2.419 1.21 0 2.176 1.095 2.157 2.419 0 1.334-.946 2.419-2.157 2.419z"/>
+      </svg>
+    </a>
+
+    <!-- Instagram -->
+    <a href="https://www.instagram.com/parrotti__/" target="_blank" aria-label="Instagram">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M7.75 2h8.5A5.76 5.76 0 0 1 22 7.75v8.5A5.76 5.76 0 0 1 16.25 22h-8.5A5.76 5.76 0 0 1 2 16.25v-8.5A5.76 5.76 0 0 1 7.75 2Zm0 1.5A4.26 4.26 0 0 0 3.5 7.75v8.5A4.26 4.26 0 0 0 7.75 20.5h8.5A4.26 4.26 0 0 0 20.5 16.25v-8.5A4.26 4.26 0 0 0 16.25 3.5h-8.5ZM12 7.25a4.75 4.75 0 1 1 0 9.5 4.75 4.75 0 0 1 0-9.5Zm0 1.5a3.25 3.25 0 1 0 0 6.5 3.25 3.25 0 0 0 0-6.5Zm4.75-.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5Z"/>
+      </svg>
+    </a>
+
+    <!-- Email -->
+    <a href="mailto:Janiszewski.Aleksander0@gmail.com" title="Kontakt z administratorem">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M2 4.75A2.75 2.75 0 0 1 4.75 2h14.5A2.75 2.75 0 0 1 22 4.75v14.5A2.75 2.75 0 0 1 19.25 22H4.75A2.75 2.75 0 0 1 2 19.25V4.75Zm2.3-.25 7.7 5.4 7.7-5.4H4.3Zm15.7 2.2-7.9 5.55a1 1 0 0 1-1.2 0L3 6.7v12.55c0 .69.56 1.25 1.25 1.25h15.5c.69 0 1.25-.56 1.25-1.25V6.7Z"/>
+      </svg>
+    </a>
+  </div>
+</footer>
+
+
 </body>
 </html>
