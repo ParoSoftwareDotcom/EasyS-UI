@@ -65,8 +65,11 @@
         <div class="grid">
            <a class="btn green" onclick="window.location.replace('list.html');" target="_blank">
             <span class="icon">🌐</span><span>Strona Główna</span>
-  <a class="btn blue" onclick="openSSH('http://192.168.100.X:8005')">
-  <span class="icon">🖥️</span><span>Zarządzanie</span>
+  <a class="btn blue" onclick="fetch('http://192.168.1.26/on')"
+  <span class="icon">🖥️</span><span>Włącznik</span>
+</a>
+ <a class="btn blue" onclick="fetch('http://192.168.1.26/off')"
+  <span class="icon">🖥️</span><span>Wyłącznik</span>
 </a>
           </a>
         </div>
@@ -77,8 +80,8 @@
       <div class="card">
         <div style="display:flex;justify-content:space-between;align-items:center">
           <div>
-            <div class="server-name">PROXMOX-HPG6-PARO</div>
-            <div style="font-size:13px;color:var(--muted)">IP: 192.168.100.221</div>
+            <div class="server-name">K3SCluster_Nikita</div>
+            <div style="font-size:13px;color:var(--muted)">IP: 192.168.1.30</div>
           </div>
           <div><span class="status-pill" id="status-pill">Prosze czekać</span></div>
         </div>
